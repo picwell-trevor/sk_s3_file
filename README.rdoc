@@ -5,6 +5,15 @@ I created this LWRP to solve the chicken-and-egg problem of fetching files from 
 
 This LWRP has no dependencies beyond the Ruby standard library, so it can be used on the first run of Chef.
 
+= NEW FEATURES:
+This provider wraps remote_file instead of wrapping file
+
+* It streams to disk like remote_file instead of blowing out RAM
+* It can leverage etags / last-modified headers
+* It supports why-run correctly
+* It will gain from any future remote_file improvements
+* It does depend on CHEF-4042 (http://tickets.opscode.com/browse/CHEF-4042) which is an unreleased CHEF 11.1.x feature
+
 = REQUIREMENTS:
 An Amazon Web Services account and something in S3 to fetch.
 
