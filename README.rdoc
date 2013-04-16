@@ -12,7 +12,7 @@ This provider wraps remote_file instead of wrapping file
 * It can leverage etags / last-modified headers
 * It supports why-run correctly
 * It will gain from any future remote_file improvements
-* It does depend on CHEF-4042 (http://tickets.opscode.com/browse/CHEF-4042) which is an unreleased CHEF 11.1.x feature
+* It does depend on CHEF-4042 (http://tickets.opscode.com/browse/CHEF-4042) which is an unreleased CHEF 11.6.x feature
 
 = REQUIREMENTS:
 An Amazon Web Services account and something in S3 to fetch.
