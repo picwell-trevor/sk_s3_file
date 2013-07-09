@@ -1,18 +1,21 @@
+= FEATURES IN THIS FORK:
+
+This fork of s3_file wraps the chef >= 11.6.0 remote_file instead of wrapping file
+
+* It streams to disk like remote_file instead of slurping into RAM
+* It leverages etags / last-modified headers through the support in the remote_file resource in chef >= 11.6.0
+* It supports why-run correctly
+* It will gain from any future remote_file improvements
+* It does depend on CHEF-4042 (adding header attribute in remote_file) and cannot be ported to chef < 11.6
+
+= UPSTREAM DOCS:
+
 = DESCRIPTION:
 An LWRP that can be used to fetch files from S3.
 
 I created this LWRP to solve the chicken-and-egg problem of fetching files from S3 on the first Chef run on a newly provisioned machine. Ruby libraries that are installed on that first run are not available to Chef during the run, so I couldn't use a library like Fog to get what I needed from S3.
 
 This LWRP has no dependencies beyond the Ruby standard library, so it can be used on the first run of Chef.
-
-= NEW FEATURES:
-This provider wraps remote_file instead of wrapping file
-
-* It streams to disk like remote_file instead of blowing out RAM
-* It can leverage etags / last-modified headers
-* It supports why-run correctly
-* It will gain from any future remote_file improvements
-* It does depend on CHEF-4042 (http://tickets.opscode.com/browse/CHEF-4042) which is an unreleased CHEF 11.6.x feature
 
 = REQUIREMENTS:
 An Amazon Web Services account and something in S3 to fetch.
