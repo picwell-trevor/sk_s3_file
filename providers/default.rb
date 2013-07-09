@@ -20,7 +20,9 @@ action :touch do
 end
 
 def do_s3_file(resource_action)
-  s3file = S3UrlGenerator.new(new_resource.bucket, new_resource.remote_path, new_resource.aws_access_key_id, new_resource.aws_secret_access_key)
+  remote_path = new_resource.remote_path
+  remote_path = "/#{remote_path}" unless remote_path.chars.first == '/'
+  s3file = S3UrlGenerator.new(new_resource.bucket, remote_path, new_resource.aws_access_key_id, new_resource.aws_secret_access_key)
 
   remote_file new_resource.name do
     path new_resource.path
