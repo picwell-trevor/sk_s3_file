@@ -26,15 +26,19 @@ def do_s3_file(resource_action)
 
   r = remote_file new_resource.name do
     path new_resource.path
-    checksum new_resource.checksum
-    backup new_resource.backup
-    use_etag new_resource.use_etag
-    use_last_modified new_resource.use_last_modified
     source s3file.url
     headers s3file.headers
     owner new_resource.owner
     group new_resource.group
     mode new_resource.mode
+    checksum new_resource.checksum
+    use_etag new_resource.use_etag
+    use_last_modified new_resource.use_last_modified
+    backup new_resource.backup
+    inherits new_resource.inherits if Platform.windows?
+    atomic_update new_resource.atomic_update
+    force_unlink new_resource.force_unlink
+    manage_symlink_source new_resource.manage_symlink_source
     action resource_action
   end
   new_resource.updated_by_last_action(r.updated_by_last_action?)
