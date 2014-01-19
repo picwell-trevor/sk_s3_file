@@ -1,7 +1,7 @@
 maintainer       "YOUR_COMPANY_NAME"
-maintainer_email "brandon.adams@me.com"
+maintainer_email "lamont@scriptkiddie.org"
 license          "MIT"
-name             "s3_file"
-description      "Installs/Configures s3_file LWRP"
+name             "sk_s3_file"
+description      "Pure Ruby Chef LWRP for pulling files from S3"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "2.0.4"
