@@ -22,7 +22,7 @@ attribute :manage_symlink_source, :kind_of => [TrueClass, FalseClass], :default 
 
 def initialize(*args)
   version = Chef::Version.new(Chef::VERSION[/^(\d+\.\d+\.\d+)/, 1])
-  if version.major < 10 # || ( version.major == 11 && version.minor < 6 )
+  if version.major < 10 || ( version.major == 11 && version.minor < 6 )
     raise "this s3_file provider is not supported on Chef < 11.6.0"
   end
   super
