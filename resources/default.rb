@@ -13,6 +13,7 @@ attribute :checksum, :kind_of => [String, NilClass], :default => nil
 attribute :backup, :kind_of => [Integer, FalseClass], :default => 5
 attribute :use_etag, :kind_of => [TrueClass, FalseClass], :default => true
 attribute :use_last_modified, :kind_of => [TrueClass, FalseClass], :default => true
+attribute :sensitive :kind_of => [TrueClass, FalseClass], :default => nil
 if Platform.windows?
   attribute :inherits, :kind_of => [TrueClass, FalseClass], :default => true
   attribute :rights, :kind_of => Hash, :default => nil

@@ -40,6 +40,7 @@ def do_s3_file(resource_action)
      atomic_update         new_resource.atomic_update
      force_unlink          new_resource.force_unlink
      manage_symlink_source new_resource.manage_symlink_source
+     sensitive             new_resource.sensitive unless new.resource_sensitive.nil?
      action                resource_action
   end
 end
