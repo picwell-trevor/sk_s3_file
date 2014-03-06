@@ -1,4 +1,6 @@
+default_action :create
 actions :create, :create_if_missing, :touch, :delete
+
 attribute :path, :kind_of => String, :name_attribute => true
 attribute :remote_path, :kind_of => String
 attribute :bucket, :kind_of => String
@@ -25,6 +27,5 @@ def initialize(*args)
     raise "this s3_file provider is not supported on Chef < 11.6.0"
   end
   super
-  @action = :create
   @path = name
 end
