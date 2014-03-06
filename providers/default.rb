@@ -29,17 +29,18 @@ def do_s3_file(resource_action)
      path                  new_resource.path
      source                s3file.url
      headers               s3file.headers
-     owner                 new_resource.owner
-     group                 new_resource.group
-     mode                  new_resource.mode
-     checksum              new_resource.checksum
-     use_etag              new_resource.use_etag
-     use_last_modified     new_resource.use_last_modified
-     backup                new_resource.backup
-     inherits              new_resource.inherits if Platform.windows?
-     atomic_update         new_resource.atomic_update
-     force_unlink          new_resource.force_unlink
-     manage_symlink_source new_resource.manage_symlink_source
+     owner                 new_resource.owner unless new_resource.owner.nil?
+     group                 new_resource.group unless new_resource.group.nil?
+     mode                  new_resource.mode unless new_resource.mode.nil?
+     checksum              new_resource.checksum unless new_resource.checksum.nil?
+     use_etag              new_resource.use_etag unless new_resource.use_etag.nil?
+     use_last_modified     new_resource.use_last_modified unless new_resource.use_last_modified.nil?
+     backup                new_resource.backup unless new_resource.backup.nil?
+     inherits              new_resource.inherits unless new_resource.inherits.nil?
+     inherits              new_resource.rights unless new_resource.rights.nil?
+     atomic_update         new_resource.atomic_update unless new_resource.atomic_update.nil?
+     force_unlink          new_resource.force_unlink unless new_resource.force_unlink.nil?
+     manage_symlink_source new_resource.manage_symlink_source unless new_resource.manage_symlink_source.nil?
      sensitive             new_resource.sensitive unless new.resource_sensitive.nil?
      action                resource_action
   end
