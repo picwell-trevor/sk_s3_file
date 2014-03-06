@@ -1,3 +1,4 @@
+use_inline_resources
 
 def whyrun_supported?
   true
@@ -24,7 +25,7 @@ def do_s3_file(resource_action)
   remote_path = "/#{remote_path}" unless remote_path.chars.first == '/'
   s3file = S3UrlGenerator.new(new_resource.bucket, remote_path, new_resource.aws_access_key_id, new_resource.aws_secret_access_key)
 
-  r = remote_file new_resource.name do
+  remote_file new_resource.name do
     path new_resource.path
     source s3file.url
     headers s3file.headers
@@ -41,5 +42,4 @@ def do_s3_file(resource_action)
     manage_symlink_source new_resource.manage_symlink_source
     action resource_action
   end
-  new_resource.updated_by_last_action(r.updated_by_last_action?)
 end
