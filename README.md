@@ -36,8 +36,8 @@ a best practice for Hosted Chef).
 creds = Chef::EncryptedDataBagItem.load("encrypted", "creds")
 
 sk_s3_file "/tmp/somefile" do
-  remote_path "/path/in/s3"
-  bucket "mmybucket"
+  remote_path "/path/in/s3/to/somefile"
+  bucket "mybucket"
   aws_access_key_id creds["ec2_access_key"]
   aws_secret_access_key creds["ec2_secret_key"]
   owner "root"
