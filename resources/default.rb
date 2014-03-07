@@ -16,7 +16,7 @@ attribute :use_etags, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :use_last_modified, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :use_conditional_get, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :headers, :kind_of => Hash, :default => nil
-attribute :sensitive :kind_of => [TrueClass, FalseClass], :default => nil
+attribute :sensitive, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :inherits, :kind_of => [TrueClass, FalseClass], :default => nil
 attribute :rights, :kind_of => Hash, :default => nil
 attribute :atomic_update, :kind_of => [TrueClass, FalseClass], :default => nil
