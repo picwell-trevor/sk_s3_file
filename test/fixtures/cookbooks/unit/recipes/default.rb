@@ -9,4 +9,3 @@ sk_s3_file '/tmp/foo.txt' do
   mode "0644"
   action :create
 end
-

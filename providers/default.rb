@@ -38,5 +38,4 @@ def do_s3_file(resource_action)
      atomic_update force_unlink manage_symlink_source sensitive}.each do |method|
     r.send(method, new_resource.send(method)) unless new_resource.send(method).nil?
   end
-
 end

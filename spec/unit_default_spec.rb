@@ -42,4 +42,3 @@ describe "unit::default" do
     expect(test_unit_default).to create_remote_file("/tmp/foo.txt").with(headers: nil)
   end
 end
-
