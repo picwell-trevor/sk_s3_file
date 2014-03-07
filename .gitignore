@@ -9,13 +9,13 @@
 .DS_Store
 .bundle/
 .cache/
+.coverage/
 .kitchen.local.yml
 .kitchen/
 .vagrant.d/
 .vagrant/
 .zero-knife.rb
 Berksfile.lock
-Gemfile
 Gemfile.lock
 Vagrantfile
 \#*#
