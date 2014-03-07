@@ -1,0 +1,107 @@
+---
+settings:
+  concurrency: 4
+
+driver_config:
+  digitalocean_client_id: <%= ENV['DIGITAL_OCEAN_CLIENT_ID'] %>
+  digitalocean_api_key: <%= ENV['DIGITAL_OCEAN_API_KEY'] %>
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: latest
+
+platforms:
+# FIXME: debian-60 has no sudoers
+#- name: debian-60
+#  driver_plugin: digitalocean
+#  driver_config:
+#    image_id: 12573
+#    flavor_id: 63
+#    region_id: 4
+#  run_list: unit::default
+
+- name: ubuntu-1004
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 14097
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: ubuntu-1204
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 1505447
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: ubuntu-1304
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 350076
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: ubuntu-1310
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 1505699
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: debian-70
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 308287
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: centos-64
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 562354
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: centos-58
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 1601
+    flavor_id: 63
+    region_id: 4
+  run_list: unit::default
+
+- name: fedora-19
+  driver_plugin: digitalocean
+  driver_config:
+    image_id: 696598
+    flavor_id: 62
+    region_id: 4
+  run_list: unit::default
+
+# FIXME: fedora droplet ssh seems buggy
+#- name: fedora-17
+#  driver_plugin: digitalocean
+#  driver_config:
+#    image_id: 32428
+#    flavor_id: 63
+#    region_id: 4
+#  run_list: unit::default
+
+# FIXME: arch has no omnibus package
+#- name: arch-201305
+#  driver_plugin: digitalocean
+#  driver_config:
+#    image_id: 350424
+#    flavor_id: 63
+#    region_id: 4
+#  run_list: unit::default
+
+suites:
+  - name: single
+    run_list: unit::default
