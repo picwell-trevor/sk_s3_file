@@ -91,6 +91,15 @@ None
 
 Put `depends sk_s3_file` in your metadata.rb to gain access to the LWRP in your code.
 
+## Contributing
+
+Just open a PR or Issue on GitHub.
+
+DO NOT Submit PRs for Ruby 1.8.7 support.
+DO NOT Submit PRs for Chef < 11.6.0 support.
+
+If you want either of those, make a fork and maintain it yourself.
+
 ## License and Author
 
 - Author:: Lamont Granquist (<lamont@scriptkiddie.org>)
