@@ -1,5 +1,7 @@
 # Chef sk_s3_file Cookbook
 
+[![Build Status](https://secure.travis-ci.org/lamont-granquist/sk_s3_file.png?branch=master)](http://travis-ci.org/lamont-granquist/sk_s3_file)
+
 This is based on Brandon Adams' s3_file resource: https://github.com/adamsb6/s3_file
 
 ## Description
