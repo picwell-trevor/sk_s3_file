@@ -13,8 +13,8 @@ describe "unit::default" do
 
   let(:fake_headers) do
     {
-      "date"=>"Fri, 07 Mar 2014 06:10:03 GMT",
-      "authorization"=>"AWS AKIAIISJV5TZ3FPWU3TA:S2MsiFe3bdh/9bc7emxQUrQXwGE=\n",
+      "date" => "Fri, 07 Mar 2014 06:10:03 GMT",
+      "authorization" => "AWS AKIAIISJV5TZ3FPWU3TA:S2MsiFe3bdh/9bc7emxQUrQXwGE=\n",
     }
   end
 
@@ -66,23 +66,23 @@ describe "unit::default" do
     end
 
     context "when overriding the date header" do
-      let(:test) { runner.converge(described_recipe) { runner.find_resource(:sk_s3_file, "/tmp/foo.txt").headers({"date" => "foo"}) } }
+      let(:test) { runner.converge(described_recipe) { runner.find_resource(:sk_s3_file, "/tmp/foo.txt").headers( "date" => "foo ") } }
       it "passes the date header to remote_file" do
-        expect(test).to create_remote_file("/tmp/foo.txt").with(headers: fake_headers.merge({"date" => "foo"}))
+        expect(test).to create_remote_file("/tmp/foo.txt").with(headers: fake_headers.merge( "date" => "foo "))
       end
     end
 
     context "when overriding the authorization header" do
-      let(:test) { runner.converge(described_recipe) { runner.find_resource(:sk_s3_file, "/tmp/foo.txt").headers({"authorization" => "foo"}) } }
+      let(:test) { runner.converge(described_recipe) { runner.find_resource(:sk_s3_file, "/tmp/foo.txt").headers( "authorization" => "foo ") } }
       it "passes the authorization header to remote_file" do
-        expect(test).to create_remote_file("/tmp/foo.txt").with(headers: fake_headers.merge({"authorization" => "foo"}))
+        expect(test).to create_remote_file("/tmp/foo.txt").with(headers: fake_headers.merge( "authorization" => "foo "))
       end
     end
 
     context "when adding headers" do
-      let(:test) { runner.converge(described_recipe) { runner.find_resource(:sk_s3_file, "/tmp/foo.txt").headers({"x-foobar" => "foo"}) } }
+      let(:test) { runner.converge(described_recipe) { runner.find_resource(:sk_s3_file, "/tmp/foo.txt").headers( "x-foobar" => "foo ") } }
       it "merges the header with the computed headers" do
-        expect(test).to create_remote_file("/tmp/foo.txt").with(headers: fake_headers.merge({"x-foobar" => "foo"}))
+        expect(test).to create_remote_file("/tmp/foo.txt").with(headers: fake_headers.merge( "x-foobar" => "foo "))
       end
     end
   end
