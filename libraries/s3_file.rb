@@ -9,7 +9,7 @@ class S3UrlGenerator
     now = Time.now.utc.strftime('%a, %d %b %Y %H:%M:%S GMT')
     string_to_sign = "GET\n\n\n%s\n/%s%s" % [now, bucket, path]
 
-    digest = OpenSSL::Digest::Digest.new('sha1')
+    digest = OpenSSL::Digest.new('sha1')
     signed = OpenSSL::HMAC.digest(digest, aws_secret_access_key, string_to_sign)
     signed_base64 = Base64.encode64(signed)
 
