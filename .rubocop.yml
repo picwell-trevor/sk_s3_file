@@ -4,6 +4,8 @@ CommentAnnotation:
   Enabled: false
 Documentation:
   Enabled: false
+DoubleNegation:
+  Enabled: false
 Encoding:
   Enabled: false
 FavorSprintf:
@@ -11,6 +13,8 @@ FavorSprintf:
 LineLength:
   Enabled: false
 MethodLength:
+  Enabled: false
+PercentLiteralDelimiters:
   Enabled: false
 SignalException:
   Enabled: false
