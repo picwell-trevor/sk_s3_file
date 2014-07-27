@@ -6,13 +6,13 @@ require 'kitchen'
 # Style tests. Rubocop and Foodcritic
 namespace :style do
   desc 'Run Ruby style checks'
-  Rubocop::RakeTask.new(:ruby)
+  RuboCop::RakeTask.new(:ruby)
 
   desc 'Run Chef style checks'
   FoodCritic::Rake::LintTask.new(:chef) do |t|
     t.options = {
-      fail_tags: ['any'],
-      tags: ['~FC009']
+      fail_tags: %w{any},
+      tags: %w{~FC009},
     }
   end
 end
@@ -39,15 +39,14 @@ namespace :integration do
   desc 'Run Test Kitchen with cloud plugins'
   task :cloud do
     if ENV['TRAVIS_PULL_REQUEST'] != 'true'
-      ENV['KITCHEN_YAML']='.kitchen.cloud.yml'
+      ENV['KITCHEN_YAML'] = '.kitchen.cloud.yml'
       sh "kitchen test --concurrency 4"
     end
   end
 end
 
 desc 'Run all tests on Travis'
-#task travis: ['style', 'spec', 'integration:cloud']
-task travis: ['style', 'spec']
+task travis: %w{style spec}
 
 # Default
-task default: ['style', 'spec', 'integration:vagrant']
+task default: %w{style spec integration:vagrant}
