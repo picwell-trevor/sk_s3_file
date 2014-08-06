@@ -5,7 +5,7 @@ gem 'chef-dk', github: "opscode/chef-dk"
 gem 'foodcritic', '>= 3.0.0'
 gem 'rubocop', '~> 0.21.0'
 gem 'berkshelf', '>= 3.0.0.beta5'
-gem 'chefspec', '>= 3.2.0'
+gem 'chefspec', github: "lamont-granquist/chefspec", branch: "lcg/chef-12"
 gem 'test-kitchen', '>= 1.2.1'
 
 group :kitchen_vagrant do
