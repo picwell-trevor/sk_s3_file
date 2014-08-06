@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'chef'
+gem 'chef', github: "opscode/chef"
 gem 'chef-dk', github: "opscode/chef-dk"
 gem 'foodcritic', '>= 3.0.0'
 gem 'rubocop', '~> 0.21.0'
